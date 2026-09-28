@@ -2,52 +2,105 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" cjntent="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Star Hit Cafe</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <aside>
-        <h2>Новинки</h2>
-    </aside>
-    
-    <article>
-        <header>
-            <nav>
-                <ul style="list-style-type:circle;">
-                    <li>Меню</li>
-                    <li>Заказ</li>
-                    <li>Продукт</li>
-                    <li>Точки</li>
-                    <li>Бронь</li>
-                    <li>Обратная связь</li>
+    <nav>
+        <ul style="list-style-type:circle;">
+            <li>Меню</li>
+            <li>Заказ</li>
+            <li>Меню</li>
+            <li>Точки</li>
+            <li>Бронь</li>
+            <li>Обратная связь</li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="site-header">
+            <a class="site-logo" href="index.html">Star Hit Cafe</a>
+            <nav class="site-nav" aria-label="Основная навигация">
+                <ul class="site-nav_list", style="list-style-type:circle;">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="#about-us">О нас</a></li>
+                    <li><a href="#popular">Популярные товары</a></li>
+                    <li><a href="#advantages">Преимущества</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
                 </ul>
             </nav>
-        </header>
-        <nav>
-            <ul style="list-style-type:circle;">
-                <li>О нас</li>
-                <li>Отзывы</li>
-            </ul>
-        </nav>
-
-        <section>
-        </section>
-    </article>
+        </div>
+    </header>
 
     <main role="main">
-        <section>
-                <h2>О проекте</h2>
-                <p>В рамках данного проекта будет разработан многостраничный сайт интернет-магазина или каталога услуг. Проект будет постепенно расширяться на следующих практических занятиях.</p>
+        <section class="hero">
+            <h1>Интернет-кафе</h1>
+            <p>I just wanna be part of your symphony</p>
+            <a class="button" href="#popular">Перейти к товарам</a>
+        </section>
+
+        <section class="section" id="about-us">
+            <h2>О нас</h2>
+            <ul class="about-us_list" style="list-style-type:circle;">
+                <li>Мы правда крутые</li>
+                <li>Правда-правда</li>
+            </ul>
+        </section>
+
+        <section class="section" id="advantages">
+            <h2>Преимущества</h2>
+            <ul class="advantages_list", style="list-style-type:circle;">
+                <li>Закажи прямо сейчас;</li>
+                <li>удобство;</li>
+                <li>быстрота;</li>
+                <li>выбор по красивым картинкам.</li>
+            </ul>
+        </section>
+        
+        <section class="section" id="popular">
+            <h2>Популярные товары</h2>
+            <article class="product-card">
+                <h3>Товар 1</h3>
+                <p>Краткое описание учебного товара.</p>
+                <p>Цена: 1000 руб.</p>
+            </article>
+
+            <article class="product-card">
+                <h3>Товар 2</h3>
+                <p>Краткое описание учебного товара.</p>
+                <p>Цена: 1500 руб.</p>
+            </article>
+
+            <article class="product-card">
+                <h3>Товар 3</h3>
+                <p>Краткое описание учебного товара.</p>
+                <p>Цена: 2000 руб.</p>
+            </article>
+        </section>
+
+        <aside class="aside-info">
+            <h2>Новинки</h2>
+            <p>Суперпуперновинки</p>
+            <h2>Скидки для студентов</h2>
+            <p>Халява, газ</p>
+        </aside>
+
+        <section class="section" id="reviews">
+            <article class="rewiews_list">
+                <h2>Отзывы</h2>
+                <p>Прикол</p>
+            </article>
         </section>
     </main>
 
-    <footer>
+    <footer id="contacts">
         <p>Номер</p>
         <p>Соц сети</p>
         <p>Донат(пж)</p>
-        <p>&copy; 2026 Учебный проект</p>
+        <p>&copy; 2026 Учебный проект. Все права защищены. Честно</p>
     </footer>
 </body>
 </html>
