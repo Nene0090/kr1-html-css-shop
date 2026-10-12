@@ -183,6 +183,14 @@ header {
 .site-nav_list {
   margin: 0;
   padding-left: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 0;
+  margin: var(--space-md) 0 0;
+  list-style: none;
 }
 
 .site-nav_list li {
@@ -195,12 +203,15 @@ header {
 }
 
 .site-nav_list a {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
   padding-bottom: 4px;
   color: var(--color-border);
   font-weight: bold;
   text-decoration: none;
   border-bottom: 2px solid transparent;
   transition: color 0.2s, border-color 0.2s;
+  border-radius: var(--radius-sm);
 }
 
 .site-nav_list a:hover {
@@ -295,6 +306,7 @@ main {
 }
 
 .product-card {
+  display: flex;
   margin-bottom: var(--space-md);
   padding: 22px;
   background-color: #f8feff;
@@ -303,6 +315,14 @@ main {
   border-radius: var(--radius-md);
   box-shadow: 0 5px 14px rgba(1, 19, 36, 0.07);
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.product-card .button {
+  margin-top: auto;
+  align-self: flex-start;
+  color: var(--color-primary);
+  background-color: transparent;
+  transform: translateY(-2px);
 }
 
 .product-card:last-child {
@@ -482,4 +502,60 @@ html {
 :target {
   outline: 2px dashed var(--color-primary);
   outline-offset: 4px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.catalog-layout {
+  max-width: var(--container-width);
+  margin: 0 auto var(--space-xl);
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-areas: "filters products";
+  gap: var(--space-lg);
+}
+
+.catalog-filters {
+  grid-area: filters;
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+}
+
+.catalog-products {
+  grid-area: products;
+}
+
+.filters-form {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.filters-form fieldset {
+  margin: 0;
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.filters-form legend {
+  font-weight: 700;
+}
+
+.filters-form label {
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.filters-form input[type="number"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font: inherit;
 }
