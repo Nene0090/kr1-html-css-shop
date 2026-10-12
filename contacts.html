@@ -1,26 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Заказ</title>
-    <link rel="stylesheet" href="">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Контактная информация учебного интернет-магазина."
+    />
+    <title>Контакты — Учебный интернет-магазин</title>
+    <link rel="stylesheet" href="css/style.css" />
 
-<body>
-    <form action="#" method="post">
-        <label for="user-name">Имя</label>
-        <input id="user-name" name="name" type="text" required>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Учебный интернет-магазин">
+    <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
+    <meta property="og:image" content="https://Nene0090.github.io/kr1-html-css-shop/images/preview.jpg">
 
-        <label for="user-email">Почта</label>
-        <input id="user-email" name="email" type="email" required>
+  </head>
 
-        <label for="user-tel">Телефон</label>
-        <input id="user-tel" name="tel" type="tel" required>
+  <body>
+    <nav>
+      <ul style="list-style-type: circle">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="order.html">Заказ</a></li>
+        <li><a href="catalog.html">Каталог</a></li>
+        <li>Точки</li>
+        <li>Бронь</li>
+        <li><a href="contacts.html">Обратная связь</a></li>
+      </ul>
+    </nav>
 
-        <label for="user-question">Вопрос/Предложение</label>
-        <input id="user-question" name="question" type="text" required>
+    <header>
+      <div class="site-header">
+        <a class="site-logo" href="index.html">ShopProject</a>
+        <nav class="site-nav" aria-label="Основная навигация">
+          <ul class="site-nav__list: circle">
+            <li><a href="index.html#advantages">Преимущества</a></li>
+            <li><a href="index.html#popular">Популярные товары</a></li>
+            <li><a href="index.html#contacts">Обратная связь</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-        <button type="submit">Отправить</button>
-    </form>
-</body>
+    <main>
+      <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a href="index.html">Главная</a>
+        <span>Контакты</span>
+      </nav>
+
+      <section class="section">
+        <h1>Контакты</h1>
+        <p>
+          Здесь размещается контактная информация учебного интернет-магазина. 
+        </p>
+
+        <ul>
+          <li>Телефон: +7 (900) 000-00-00</li>
+          <li>E-mail: info@example.com</li>
+          <li>Адрес: г. Москва, учебный проект</li>
+        </ul>
+      </section>
+
+      <section class="section" id="feedback">
+        <h2>Обратная связь</h2>
+        <p>
+          Для отправки заявки используйте форму в модальном окне на главной
+          странице.
+        </p>
+        <a class="button" href="index.html#contacts">Перейти к форме</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>Номер</p> <p>Соц сети</p> <p>Донат(пж)</p>
+      <p>&copy; 2026 Учебный проект. Все права защищены. Честно</p>
+    </footer>
+  </body>
 </html>
