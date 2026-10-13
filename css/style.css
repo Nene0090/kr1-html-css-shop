@@ -321,11 +321,11 @@ a:focus-visible {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
-<<<<<<< HEAD
+
   margin-bottom: var(--space-md);
-=======
+
   margin-bottom: 0;
->>>>>>> 4a73fb9421ef9626c82041cbf52f881be14a3027
+
   padding: 22px;
   background-color: #f8feff;
   border: 1px solid var(--color-border);
@@ -335,13 +335,10 @@ a:focus-visible {
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
-<<<<<<< HEAD
 .product-card:last-child {
   margin-bottom: 0;
 }
 
-=======
->>>>>>> 4a73fb9421ef9626c82041cbf52f881be14a3027
 .product-card:hover {
   border-color: var(--color-primary);
   box-shadow: 0 10px 22px rgba(1, 19, 36, 0.14);
@@ -371,13 +368,10 @@ a:focus-visible {
 }
 
 .products-grid {
-<<<<<<< HEAD
   display: block;
-=======
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
->>>>>>> 4a73fb9421ef9626c82041cbf52f881be14a3027
 }
 
 .aside-info {
@@ -404,10 +398,6 @@ a:focus-visible {
   margin-bottom: 0;
 }
 
-<<<<<<< HEAD
-=======
-/* ----- Отзывы (reviews) ----- */
->>>>>>> 4a73fb9421ef9626c82041cbf52f881be14a3027
 .reviews__list {
   padding: 22px;
   background-color: var(--color-surface-accent);
@@ -437,7 +427,6 @@ a:focus-visible {
   margin: 7px auto;
 }
 
-<<<<<<< HEAD
 .site-footer__nav {
   max-width: var(--container-width);
   margin: var(--space-md) auto;
@@ -476,8 +465,6 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
-=======
->>>>>>> 4a73fb9421ef9626c82041cbf52f881be14a3027
 .site-footer__copyright {
   max-width: var(--container-width);
   margin: 20px auto 0;
