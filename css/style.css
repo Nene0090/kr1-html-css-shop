@@ -48,12 +48,20 @@ body {
   background-color: var(--color-bg);
 }
 
-h1, h2, h3, p {
+h1,
+h2,
+h3,
+p {
   margin-top: 0;
 }
 
 section {
   scroll-margin-top: 30px;
+}
+
+:target {
+  outline: 2px dashed var(--color-primary);
+  outline-offset: 4px;
 }
 
 /* ===================================
@@ -77,20 +85,36 @@ a:focus-visible {
 .button {
   display: inline-block;
   padding: var(--space-sm) var(--space-md);
-  color: var(--color-text);
   font-weight: bold;
+  font-size: 16px;
+  font-family: inherit;
   text-decoration: none;
-  background-color: var(--color-primary);
   border: 2px solid var(--color-primary);
   border-radius: var(--radius-sm);
-  box-shadow: 0 7px 18px rgba(89, 239, 250, 0.3);
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
-.button:hover {
+.button--primary {
+  color: var(--color-text);
+  background-color: var(--color-primary);
+  box-shadow: 0 7px 18px rgba(89, 239, 250, 0.3);
+}
+
+.button--primary:hover {
   color: var(--color-primary);
   background-color: transparent;
+  transform: translateY(-2px);
+}
+
+.button--secondary {
+  color: var(--color-primary);
+  background-color: transparent;
+}
+
+.button--secondary:hover {
+  color: var(--color-text);
+  background-color: var(--color-primary);
   transform: translateY(-2px);
 }
 
@@ -105,16 +129,16 @@ a:focus-visible {
   transform: none;
 }
 
-.form-field input:hover,
-.form-field select:hover,
-.form-field textarea:hover {
+.order-form__input:hover,
+.order-form__select:hover,
+.order-form__textarea:hover {
   border-color: var(--color-primary);
 }
 
-.form-field input:focus-visible,
-.form-field select:focus-visible,
-.form-field textarea:focus-visible,
-.form-actions button:focus-visible {
+.order-form__input:focus-visible,
+.order-form__select:focus-visible,
+.order-form__textarea:focus-visible,
+.order-form__actions button:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
 }
@@ -123,36 +147,7 @@ a:focus-visible {
    4. Компоненты страницы
    =================================== */
 
-body > nav {
-  padding: 10px 20px;
-  color: var(--color-border);
-  background-color: var(--color-surface);
-  border-bottom: 2px solid var(--color-primary);
-}
-
-body > nav ul {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding-left: 22px;
-}
-
-body > nav li {
-  display: inline-block;
-  margin: 4px 22px 4px 0;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-body > nav li::marker {
-  color: var(--color-primary);
-}
-
-body > nav li:hover {
-  color: var(--color-primary);
-}
-
-header {
+.site-header {
   padding: var(--space-lg) 20px;
   color: var(--color-border);
   background-color: var(--color-surface);
@@ -160,12 +155,15 @@ header {
   box-shadow: 0 5px 18px rgba(1, 19, 36, 0.25);
 }
 
-.site-header {
+.site-header__inner {
   max-width: var(--container-width);
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.site-logo {
+.site-header__logo {
   display: inline-block;
   margin-bottom: 18px;
   color: var(--color-primary);
@@ -176,50 +174,65 @@ header {
   text-shadow: 0 0 14px rgba(89, 239, 250, 0.45);
 }
 
-.site-logo:hover {
+.site-header__logo:hover {
   color: var(--color-border);
 }
 
-.site-nav_list {
-  margin: 0;
-  padding-left: 22px;
+.site-nav {
+  width: 100%;
+}
+
+.site-nav__list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: var(--space-md);
   padding: 0;
-  margin: var(--space-md) 0 0;
+  margin: 0;
   list-style: none;
 }
 
-.site-nav_list li {
+.site-nav--extra .site-nav__list {
+  margin-top: var(--space-md);
+}
+
+.site-nav__item {
   display: inline-block;
-  margin: 5px 22px 5px 0;
 }
 
-.site-nav_list li::marker {
-  color: var(--color-primary);
-}
-
-.site-nav_list a {
+.site-nav__link {
   display: inline-block;
   padding: var(--space-sm) var(--space-md);
-  padding-bottom: 4px;
   color: var(--color-border);
   font-weight: bold;
   text-decoration: none;
-  border-bottom: 2px solid transparent;
-  transition: color 0.2s, border-color 0.2s;
   border-radius: var(--radius-sm);
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
 }
 
-.site-nav_list a:hover {
+.site-nav__link:hover {
   color: var(--color-primary);
   border-bottom-color: var(--color-primary);
 }
 
-main {
+.site-nav__link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.site-nav__link--active {
+  color: var(--color-text);
+  background-color: var(--color-primary);
+}
+
+.site-nav__link--disabled {
+  color: var(--color-muted);
+  cursor: not-allowed;
+}
+
+.main {
   padding: 36px 20px;
 }
 
@@ -231,8 +244,7 @@ main {
   color: var(--color-border);
   text-align: center;
   background-color: var(--color-surface);
-  background-image:
-    radial-gradient(
+  background-image: radial-gradient(
       circle at top right,
       rgba(89, 239, 250, 0.3),
       transparent 34%
@@ -243,7 +255,7 @@ main {
   box-shadow: 0 14px 35px rgba(1, 19, 36, 0.25);
 }
 
-.hero h1 {
+.hero__title {
   margin-bottom: 12px;
   color: var(--color-primary);
   font-size: 48px;
@@ -251,7 +263,7 @@ main {
   text-shadow: 0 0 20px rgba(89, 239, 250, 0.45);
 }
 
-.hero p {
+.hero__text {
   margin-bottom: 28px;
   font-size: 20px;
 }
@@ -266,7 +278,7 @@ main {
   box-shadow: 0 8px 24px rgba(1, 19, 36, 0.09);
 }
 
-.section h2 {
+.section__title {
   margin-bottom: 22px;
   padding-bottom: 10px;
   color: var(--color-text);
@@ -274,26 +286,26 @@ main {
   border-bottom: 3px solid var(--color-primary);
 }
 
-.section h2::first-letter {
+.section__title::first-letter {
   color: var(--color-primary-dark);
 }
 
-.about-us_list,
-.advantages_list {
+.about-us__list,
+.advantages__list {
   margin: 0;
   padding-left: 25px;
 }
 
-.about-us_list li {
+.about-us__item {
   margin-bottom: 10px;
   padding-left: 6px;
 }
 
-.about-us_list li::marker {
+.about-us__item::marker {
   color: var(--color-primary-dark);
 }
 
-.advantages_list li {
+.advantages__item {
   margin-bottom: 12px;
   padding: 10px 12px;
   background-color: var(--color-surface-accent);
@@ -301,12 +313,14 @@ main {
   border-radius: var(--radius-sm);
 }
 
-.advantages_list li::marker {
+.advantages__item::marker {
   color: var(--color-primary-dark);
 }
 
 .product-card {
   display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
   margin-bottom: var(--space-md);
   padding: 22px;
   background-color: #f8feff;
@@ -315,14 +329,6 @@ main {
   border-radius: var(--radius-md);
   box-shadow: 0 5px 14px rgba(1, 19, 36, 0.07);
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-}
-
-.product-card .button {
-  margin-top: auto;
-  align-self: flex-start;
-  color: var(--color-primary);
-  background-color: transparent;
-  transform: translateY(-2px);
 }
 
 .product-card:last-child {
@@ -335,21 +341,30 @@ main {
   transform: translateY(-3px);
 }
 
-.product-card h3 {
+.product-card__title {
   margin-bottom: 8px;
   color: var(--color-primary-dark);
   font-size: 22px;
 }
 
-.product-card p {
+.product-card__description {
   margin-bottom: 7px;
 }
 
-.product-card p:last-child {
+.product-card__price {
   margin-bottom: 0;
   color: var(--color-text);
   font-size: 18px;
   font-weight: bold;
+}
+
+.product-card__button {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.products-grid {
+  display: block;
 }
 
 .aside-info {
@@ -363,31 +378,27 @@ main {
   box-shadow: 0 9px 24px rgba(1, 19, 36, 0.2);
 }
 
-.aside-info h2 {
+.aside-info__title {
   margin-bottom: 8px;
   color: var(--color-primary);
 }
 
-.aside-info h2:not(:first-child) {
+.aside-info__title:not(:first-child) {
   margin-top: 24px;
 }
 
-.aside-info p {
+.aside-info__text {
   margin-bottom: 0;
 }
 
-.rewiews_list {
+.reviews__list {
   padding: 22px;
   background-color: var(--color-surface-accent);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
 }
 
-.rewiews_list h2 {
-  margin-bottom: 14px;
-}
-
-.rewiews_list p {
+.reviews__item {
   margin-bottom: 0;
   padding: 16px;
   color: var(--color-text);
@@ -396,7 +407,7 @@ main {
   border-radius: var(--radius-sm);
 }
 
-footer {
+.site-footer {
   padding: 35px 20px;
   color: var(--color-border);
   text-align: center;
@@ -404,13 +415,52 @@ footer {
   border-top: 3px solid var(--color-primary);
 }
 
-footer p {
+.site-footer__text {
   max-width: var(--container-width);
   margin: 7px auto;
 }
 
-footer p:last-child {
-  margin-top: 20px;
+.site-footer__nav {
+  max-width: var(--container-width);
+  margin: var(--space-md) auto;
+}
+
+.site-footer__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.site-footer__item {
+  display: inline-block;
+}
+
+.site-footer__link {
+  color: var(--color-border);
+  font-weight: bold;
+  text-decoration: none;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.site-footer__link:hover {
+  color: var(--color-text);
+  background-color: var(--color-primary);
+}
+
+.site-footer__link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.site-footer__copyright {
+  max-width: var(--container-width);
+  margin: 20px auto 0;
   padding-top: 16px;
   color: #7fcbd1;
   font-size: 14px;
@@ -420,6 +470,7 @@ footer p:last-child {
 /* ===================================
    5. Форма и модальное окно
    =================================== */
+
 .order-dialog {
   width: min(100% - 32px, 560px);
   padding: var(--space-lg);
@@ -431,18 +482,27 @@ footer p:last-child {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.form-field {
+.order-dialog__title {
+  margin-top: 0;
   margin-bottom: var(--space-md);
 }
 
-.form-field label {
+.order-form__field {
+  margin-bottom: var(--space-md);
+}
+
+.order-form__field--checkbox {
+  margin-top: var(--space-md);
+}
+
+.order-form__label {
   display: block;
   margin-bottom: var(--space-xs);
 }
 
-.form-field input,
-.form-field select,
-.form-field textarea {
+.order-form__input,
+.order-form__select,
+.order-form__textarea {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid var(--color-border);
@@ -450,22 +510,21 @@ footer p:last-child {
   font: inherit;
 }
 
-.form-field input[type="checkbox"] {
+.order-form__input[type="checkbox"] {
   width: auto;
 }
 
-.form-field small {
+.order-form__hint {
   display: block;
   margin-top: var(--space-xs);
   color: var(--color-muted);
 }
 
-/* Подсветка ошибочных полей */
 [aria-invalid="true"] {
   border-color: var(--color-danger);
 }
 
-.form-actions {
+.order-form__actions {
   display: flex;
   gap: 12px;
   margin-top: 20px;
@@ -486,28 +545,13 @@ footer p:last-child {
   color: var(--color-muted);
 }
 
-.breadcrumbs a {
+.breadcrumbs__link {
   color: var(--color-primary);
 }
 
-.breadcrumbs span::before {
+.breadcrumbs__current::before {
   content: " / ";
   color: var(--color-muted);
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-:target {
-  outline: 2px dashed var(--color-primary);
-  outline-offset: 4px;
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
 }
 
 .catalog-layout {
