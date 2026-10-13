@@ -7,11 +7,16 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/main.js" defer></script>
 
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Учебный интернет-магазин">
-    <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
-    <meta property="og:image" content="https://Nene0090.github.io/kr1-html-css-shop/images/preview.jpg">
-    
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Учебный интернет-магазин" />
+    <meta
+      property="og:description"
+      content="Учебный frontend-проект интернет-магазина."
+    />
+    <meta
+      property="og:image"
+      content="https://Nene0090.github.io/kr1-html-css-shop/images/preview.jpg"
+    />
   </head>
 
   <body>
@@ -69,44 +74,46 @@
 
       <section class="section" id="popular">
         <h2>Популярные товары</h2>
-        <article class="product-card">
-          <h3>Товар 1</h3>
-          <p>Какое-то кофе 1.</p>
-          <p>Цена: 299 руб.</p>
-          <button
-            class="button-product-card_button"
-            type="button"
-            data-product="Товар 1"
-          >
-            Заказать<!doctype html>
-          </button>
-        </article>
+        <div class="products-grid">
+          <article class="product-card">
+            <h3>Товар 1</h3>
+            <p>Какое-то кофе 1.</p>
+            <p>Цена: 299 руб.</p>
+            <button
+              class="button-product-card_button"
+              type="button"
+              data-product="Товар 1"
+            >
+              Заказать<!doctype html>
+            </button>
+          </article>
 
-        <article class="product-card">
-          <h3>Товар 2</h3>
-          <p>Какое-то кофе 2.</p>
-          <p>Цена: 399 руб.</p>
-          <button
-            class="button-product-card_button"
-            type="button"
-            data-product="Товар 2"
-          >
-            Заказать<!doctype html>
-          </button>
-        </article>
+          <article class="product-card">
+            <h3>Товар 2</h3>
+            <p>Какое-то кофе 2.</p>
+            <p>Цена: 399 руб.</p>
+            <button
+              class="button-product-card_button"
+              type="button"
+              data-product="Товар 2"
+            >
+              Заказать<!doctype html>
+            </button>
+          </article>
 
-        <article class="product-card">
-          <h3>Товар 3</h3>
-          <p>Какое-то дорогое кофе 3.</p>
-          <p>Цена: 499 руб.</p>
-          <button
-            class="button-product-card_button"
-            type="button"
-            data-product="Товар 3"
-          >
-            Заказать<!doctype html>
-          </button>
-        </article>
+          <article class="product-card">
+            <h3>Товар 3</h3>
+            <p>Какое-то дорогое кофе 3.</p>
+            <p>Цена: 499 руб.</p>
+            <button
+              class="button-product-card_button"
+              type="button"
+              data-product="Товар 3"
+            >
+              Заказать<!doctype html>
+            </button>
+          </article>
+        </div>
       </section>
 
       <aside class="aside-info">
@@ -125,7 +132,9 @@
     </main>
 
     <footer id="contacts">
-      <p>Номер</p> <p>Соц сети</p> <p>Донат(пж)</p>
+      <p>Номер</p>
+      <p>Соц сети</p>
+      <p>Донат(пж)</p>
       <p>&copy; 2026 Учебный проект. Все права защищены. Честно</p>
     </footer>
 
