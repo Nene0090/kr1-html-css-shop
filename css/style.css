@@ -322,8 +322,6 @@ a:focus-visible {
   flex-direction: column;
   gap: var(--space-sm);
 
-  margin-bottom: var(--space-md);
-
   margin-bottom: 0;
 
   padding: 22px;
@@ -368,7 +366,6 @@ a:focus-visible {
 }
 
 .products-grid {
-  display: block;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
@@ -583,15 +580,15 @@ a:focus-visible {
   color: var(--color-primary);
 }
 
-.catalog-filters legend {
+.catalog-filters .filters-form legend {
   color: var(--color-primary);
 }
 
-.catalog-filters label {
+.catalog-filters .filters-form label {
   color: var(--color-border);
 }
 
-.catalog-filters input[type="number"] {
+.catalog-filters .filters-form input[type="number"] {
   color: var(--color-text);
   background-color: var(--color-white);
 }
